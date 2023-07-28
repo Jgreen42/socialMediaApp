@@ -24,12 +24,30 @@
                 <p>Short bio...</p>
                 <button>Edit Profile</button>
             </div>
+            <form id="profile-form">
+                <input type="text" id="username-input" placeholder="Username">
+                <input type="text" id="bio-input" placeholder="Short bio">
+                <button type="submit">Save</button>
+            </form>
+            <div id="user-profile">
+                <h2 id="username-display">Username</h2>
+                <p id="bio-display">Short bio...</p>
+            </div>
+            
             <div id="post-creation">
                 <form>
                     <textarea placeholder="What's on your mind?"></textarea>
                     <button type="submit">Post</button>
                 </form>
             </div>
+            <form id="post-form">
+                <textarea id="post-input" placeholder="What's on your mind?"></textarea>
+                <button type="submit">Post</button>
+            </form>
+            <div id="posts">
+                <!-- Posts will go here -->
+            </div>
+            
             <div id="posts">
                 <!-- Posts will go here -->
             </div>

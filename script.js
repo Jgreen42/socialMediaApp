@@ -60,4 +60,25 @@ window.onload = function() {
         event.preventDefault();
         alert('Signed up!');
     });
+    document.getElementById('post-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var postInput = document.getElementById('post-input');
+        var posts = document.getElementById('posts');
+        var newPost = document.createElement('p');
+        newPost.textContent = postInput.value;
+        posts.appendChild(newPost);
+        postInput.value = '';
+    });
+    document.getElementById('profile-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var usernameInput = document.getElementById('username-input');
+        var bioInput = document.getElementById('bio-input');
+        var usernameDisplay = document.getElementById('username-display');
+        var bioDisplay = document.getElementById('bio-display');
+        usernameDisplay.textContent = usernameInput.value;
+        bioDisplay.textContent = bioInput.value;
+        usernameInput.value = '';
+        bioInput.value = '';
+    });
+    
 };
