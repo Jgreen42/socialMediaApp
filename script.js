@@ -1,3 +1,24 @@
+
+
+window.onload = function() {
+    // ... rest of your code ...
+
+    async function addSampleData() {
+        try {
+            await setDoc(doc(db, "testCollection", "testDocument"), {
+                field1: "Hello",
+                field2: "World"
+            });
+            console.log("Document written successfully!");
+        } catch (error) {
+            console.error("Error writing document: ", error);
+        }
+    }
+
+    addSampleData();
+};
+
+
 window.onload = function() {
     var footer = document.querySelector('footer');
     var date = new Date();
@@ -49,17 +70,6 @@ window.onload = function() {
         friendsList.appendChild(friendElement);
     });
 
-    var loginForm = document.querySelector('#login-form form');
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Logged in!');
-    });
-
-    var signupForm = document.querySelector('#signup-form form');
-    signupForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Signed up!');
-    });
     document.getElementById('post-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var postInput = document.getElementById('post-input');
@@ -80,5 +90,21 @@ window.onload = function() {
         usernameInput.value = '';
         bioInput.value = '';
     });
+    const auth = firebase.auth();
+
+function createNewUser(email, password) {
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // User created successfully
+      console.log("User created: ", userCredential.user);
+    })
+    .catch((error) => {
+      // Error creating user
+      console.error("Error: ", error.message);
+    });
+}
+
+createNewUser("test@example.com", "testPassword");
+
     
 };
